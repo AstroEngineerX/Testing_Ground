@@ -6,6 +6,10 @@ public abstract class Stat
     private int _maxValue;
     private int _minValue;
 
+    public int CurrentValue => _currentValue;
+    public int MaxValue => _maxValue;
+    public int MinValue => _minValue;
+
     protected Stat(int minValue, int maxValue, bool initWithMax = false)
     {
         _minValue = Mathf.Max(0, minValue);
