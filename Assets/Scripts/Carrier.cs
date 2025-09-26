@@ -9,7 +9,10 @@ public abstract class Carrier : MonoBehaviour, IDamageable
     [SerializeField] private float attackCooldown = 1f;
 
     [Header("Hit Reaction")]
-    [SerializeField] private float stunDuration = 0.5f; // time stunned after damage
+    [SerializeField] private float stunDuration = 0.5f;
+
+    [Header("UI References")]
+    [SerializeField] private HealthBar healthBar;
 
     private Health _health;
     private Animator _animator;
@@ -19,17 +22,36 @@ public abstract class Carrier : MonoBehaviour, IDamageable
     private Vector3 knockbackVelocity;
     private float stunTimer;
 
+    [SerializeField] private int currentHealthDebug; // visible in inspector
+
     protected Health Health => _health;
+
+    public int CurrentHealth => _health != null ? _health.CurrentValue : 0;
+    public int MaxHealth => _health != null ? _health.MaxValue : maxHealth;
 
     protected virtual void Awake()
     {
         _health = new Health(0, maxHealth);
         _animator = GetComponent<Animator>();
         _characterController = GetComponent<CharacterController>();
+
+        currentHealthDebug = _health.CurrentValue;
+
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(CurrentHealth, MaxHealth);
+        }
     }
 
     protected virtual void Update()
     {
+        currentHealthDebug = _health.CurrentValue;
+
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(CurrentHealth, MaxHealth);
+        }
+
         if (stunTimer > 0)
         {
             stunTimer -= Time.deltaTime;
@@ -47,12 +69,6 @@ public abstract class Carrier : MonoBehaviour, IDamageable
         if (Time.time < _lastAttackTime + attackCooldown) return;
 
         _lastAttackTime = Time.time;
-
-        if (_animator != null)
-        {
-            _animator.SetTrigger("Attack");
-        }
-
         target.TakeDamage(attackDamage);
     }
 
@@ -61,10 +77,11 @@ public abstract class Carrier : MonoBehaviour, IDamageable
         if (damageAmount <= 0) return;
 
         _health.AffectValue(-damageAmount);
+        currentHealthDebug = _health.CurrentValue;
 
-        if (_animator != null)
+        if (healthBar != null)
         {
-            _animator.SetTrigger("Hit");
+            healthBar.SetHealth(CurrentHealth, MaxHealth);
         }
 
         stunTimer = stunDuration;
@@ -78,7 +95,14 @@ public abstract class Carrier : MonoBehaviour, IDamageable
     public virtual void HealthRegen(int healthAmount)
     {
         if (healthAmount <= 0) return;
+
         _health.AffectValue(healthAmount);
+        currentHealthDebug = _health.CurrentValue;
+
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(CurrentHealth, MaxHealth);
+        }
 
         Debug.Log($"{gameObject.name} healed {healthAmount}. Current health: {_health.CurrentValue}");
     }
@@ -91,11 +115,6 @@ public abstract class Carrier : MonoBehaviour, IDamageable
 
     protected virtual void OnDeath()
     {
-        if (_animator != null)
-        {
-            _animator.SetTrigger("Die");
-        }
-
         DisableControls();
     }
 
