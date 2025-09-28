@@ -2188,9 +2188,10 @@ GameObject:
   - component: {fileID: 1376785027}
   - component: {fileID: 1376785026}
   - component: {fileID: 1376785030}
+  - component: {fileID: 1376785031}
   - component: {fileID: 1376785029}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Aura's_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2378,6 +2379,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376785024}
   m_CullTransparentMesh: 1
+--- !u!114 &1376785031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376785024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6741c8b49a5d04e9104ad490f93c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthFill: {fileID: 0}
+  damageFill: {fileID: 2119709427}
+  updateSpeed: 0.2
+  damageLagSpeed: 0.5
 --- !u!1 &1387778813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2892,8 +2909,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8897093224900880590, guid: ccd0af6bd2222f54381edda2ecb90ec3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1376785025}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: ccd0af6bd2222f54381edda2ecb90ec3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1717200254}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: ccd0af6bd2222f54381edda2ecb90ec3, type: 3}
+--- !u!1 &1518855182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8128668236925612103, guid: ccd0af6bd2222f54381edda2ecb90ec3, type: 3}
+  m_PrefabInstance: {fileID: 1518855181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1560947010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,6 +3241,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8897093224900880590, guid: ccd0af6bd2222f54381edda2ecb90ec3, type: 3}
   m_PrefabInstance: {fileID: 1518855181}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1717200254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518855182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2384acb6bc2eb8347b9e2f0a49755f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  attackDamage: 1
+  attackCooldown: 1
+  stunDuration: 0.5
+  healthBar: {fileID: 1376785031}
+  currentHealthDebug: 0
 --- !u!1 &1736372368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3760,7 +3803,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.423
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
