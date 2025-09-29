@@ -1926,6 +1926,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffb3a45c521d2e148b855ad8c9937d76, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1427429461}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffb3a45c521d2e148b855ad8c9937d76, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1427429465}
   m_SourcePrefab: {fileID: 100100000, guid: ffb3a45c521d2e148b855ad8c9937d76, type: 3}
 --- !u!1 &1154762380 stripped
 GameObject:
@@ -2932,6 +2935,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2a48bb1801bb8449581523157b4dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1427429465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427429453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1ca2c51219976478939044d02085c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  attackDamage: 1
+  attackCooldown: 1
+  stunDuration: 0.5
+  healthBar: {fileID: 120181967}
+  currentHealthDebug: 0
+  maxMana: 1
+  manaFillType: 0
 --- !u!1001 &1518855181
 PrefabInstance:
   m_ObjectHideFlags: 0
