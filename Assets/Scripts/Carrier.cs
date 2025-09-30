@@ -62,6 +62,12 @@ public abstract class Carrier : MonoBehaviour, IDamageable
                 knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, Time.deltaTime * 5f);
             }
         }
+
+        if (_animator != null)
+        {
+            if (Input.GetKeyDown(KeyCode.E)) _animator.SetTrigger("MeleeAttack");
+            if (Input.GetKeyDown(KeyCode.Q)) _animator.SetTrigger("FightTrigger");
+        }
     }
 
     public virtual void Attack(IDamageable target)
