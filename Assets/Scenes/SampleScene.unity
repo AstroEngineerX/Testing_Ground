@@ -300,7 +300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &120181963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &295634302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,7 +1067,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0.2520688, y: -0.0015695092, z: -0.006964149, w: -0.96768296}
-  m_LocalPosition: {x: 0.009, y: 2.312, z: -1.358}
+  m_LocalPosition: {x: -0.012, y: 2.312, z: -2.112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3881,7 +3881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2b2e3c6d8b4ad4284288e4ba1f2beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 100
   destroyOnHit: 0
   continuousDamage: 1
   damageInterval: 1
@@ -4361,7 +4361,7 @@ MonoBehaviour:
   maxHealth: 100
   attackDamage: 1
   attackCooldown: 1
-  stunDuration: 0.5
+  stunDuration: 5
   healthBar: {fileID: 295634306}
   currentHealthDebug: 100
   maxMana: 1
@@ -4743,7 +4743,7 @@ Transform:
   m_GameObject: {fileID: 1698421342}
   serializedVersion: 2
   m_LocalRotation: {x: -0.2520688, y: -0.0015695092, z: -0.006964149, w: -0.96768296}
-  m_LocalPosition: {x: 0.009, y: 2.312, z: -1.358}
+  m_LocalPosition: {x: -0.09, y: 2.312, z: -2.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5542,7 +5542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb3a45c521d2e148b855ad8c9937d76, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.33
+      value: 2.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb3a45c521d2e148b855ad8c9937d76, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5828,7 +5828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 26398573cb9171b4ebab500a3518fdaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.505
+      value: 0.105
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 26398573cb9171b4ebab500a3518fdaa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6107,16 +6107,16 @@ SceneRoots:
   - {fileID: 1757243271}
   - {fileID: 611424013}
   - {fileID: 316475217}
-  - {fileID: 690380187}
-  - {fileID: 1518855181}
-  - {fileID: 2122282282}
-  - {fileID: 277184062}
-  - {fileID: 833198403}
-  - {fileID: 1147500425}
-  - {fileID: 2093629121}
   - {fileID: 1560947011}
   - {fileID: 352526859}
   - {fileID: 1411376848}
   - {fileID: 1140712417}
+  - {fileID: 277184062}
+  - {fileID: 833198403}
+  - {fileID: 1147500425}
+  - {fileID: 2093629121}
+  - {fileID: 690380187}
+  - {fileID: 1518855181}
+  - {fileID: 2122282282}
   - {fileID: 1415161949}
   - {fileID: 1625151028}

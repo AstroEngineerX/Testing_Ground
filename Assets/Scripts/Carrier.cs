@@ -22,6 +22,11 @@ public abstract class Carrier : MonoBehaviour, IDamageable
     private Vector3 knockbackVelocity;
     private float stunTimer;
 
+    private InputManager _inputManager;
+    private PlayerMovement _playerMovement;
+    private AnimatorManager _animatorManager;
+    private Rigidbody _rigidbody;
+
     [SerializeField] private int currentHealthDebug; // visible in inspector
 
     protected Health Health => _health;
@@ -34,6 +39,10 @@ public abstract class Carrier : MonoBehaviour, IDamageable
         _health = new Health(0, maxHealth);
         _animator = GetComponent<Animator>();
         _characterController = GetComponent<CharacterController>();
+        _inputManager = GetComponent<InputManager>();
+        _playerMovement = GetComponent<PlayerMovement>();
+        _animatorManager = GetComponent<AnimatorManager>();
+        _rigidbody = GetComponent<Rigidbody>();
 
         currentHealthDebug = _health.CurrentValue;
 
@@ -121,12 +130,34 @@ public abstract class Carrier : MonoBehaviour, IDamageable
 
     protected virtual void OnDeath()
     {
-        DisableControls();
+        if (_animator != null) 
+        { 
+            _animator.SetTrigger("IsDead"); 
+        }
+            DisableControls();
     }
 
     protected virtual void DisableControls()
     {
-        // Override in child to disable input
+        // Disable input manager (stops listening to input actions)
+        if (_inputManager != null)
+            _inputManager.enabled = false;
+
+        // Disable movement so no physics or movement continues
+        if (_playerMovement != null)
+            _playerMovement.enabled = false;
+
+        // Optionally disable animations (if needed to freeze animation states)
+        if (_animatorManager != null)
+            _animatorManager.enabled = false;
+
+        // Freeze Rigidbody so the player doesn’t keep moving or falling
+        if (_rigidbody != null)
+        {
+            _rigidbody.linearVelocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;
+            _rigidbody.isKinematic = true; // prevents physics forces after death
+        }
     }
 
     public bool IsStunned => stunTimer > 0;
