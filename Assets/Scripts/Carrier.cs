@@ -66,7 +66,7 @@ public abstract class Carrier : MonoBehaviour, IDamageable
         if (_animator != null)
         {
             if (Input.GetKeyDown(KeyCode.E)) _animator.SetTrigger("MeleeAttack");
-            if (Input.GetKeyDown(KeyCode.Q)) _animator.SetTrigger("FightTrigger");
+            if (Input.GetMouseButtonDown(0)) _animator.SetTrigger("MagicAttack");
         }
     }
 
